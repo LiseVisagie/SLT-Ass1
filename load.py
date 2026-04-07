@@ -1,7 +1,7 @@
 import pandas as pd
 import os
 
-def save_data(df, path="data/silver_data.csv"):
+def save_data(df, path="silver.csv"):
     
     if os.path.exists(path):
         existing = pd.read_csv(path, parse_dates=["Date"], index_col="Date")
