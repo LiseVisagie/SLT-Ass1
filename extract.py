@@ -18,11 +18,10 @@ def fetch_data(start_date="2025-01-01"):
     df["VIX"] = vix["Close"]
     
     macro = pd.DataFrame()
-    
-    macro["US_CPI"] = pdr.DataReader("CPIAUCSL", "fred", start_date)
+ 
     macro["US_Interest_Rate"] = pdr.DataReader("FEDFUNDS", "fred", start_date)
     macro["US_10Y_Yield"] = pdr.DataReader("DGS10", "fred", start_date)
-    macro["US_Unemployment"] = pdr.DataReader("UNRATE", "fred", start_date)
+
     
 
     df = df.join(macro, how="left")
