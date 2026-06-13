@@ -38,8 +38,6 @@ def add_features(df):
     df["fx_vol_21"] = df["fx_returns"].rolling(21).std()
     df["brent_vol_21"] = (df["brent_returns"].rolling(21).std())
 
-    for lag in range(1, 5):
-        df[f"abs_return_lag_{lag}"] = abs(df["log_returns"].shift(lag))
 
     df["target_vol"] = (df["log_returns"].rolling(5).std().shift(-1))
 
